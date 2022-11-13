@@ -1,0 +1,52 @@
+.g-stamp-text {
+    font-size: 3rem;
+    white-space: pre-wrap;
+    line-height: 1;
+    color: black;
+
+    @font-face {
+        font-family: GoudyCursive;
+        src: url("./asset/OPTIGoudy-Cursive.otf") format("opentype");
+        font-style: normal;
+        font-stretch: normal;
+    }
+
+    @font-face {
+        font-family: TypoRoman;
+        src: url("./asset/OPTITypoRoman.otf") format("opentype");
+        font-style: normal;
+        font-stretch: normal;
+    }
+
+    &.goudy-cursive {
+        font-family: GoudyCursive;
+    }
+
+    &.typo-roman {
+        font-family: TypoRoman;
+    }
+
+    &.matte {
+        &-gold {
+            color: #d2bf37;
+        }
+
+        &-rose-gold {
+            color: #e2a182;
+        }
+    }
+
+    &.glossy {
+        &-gold {
+            color: #d4af37;
+        }
+
+        &-rose-gold {
+            color: #e2a182;
+        }
+
+        &-silver {
+            color: #c0c0c0;
+        }
+    }
+}

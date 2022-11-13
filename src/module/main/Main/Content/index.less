@@ -1,0 +1,54 @@
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 2rem;
+
+    > h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        margin: 0;
+    }
+
+    .section {
+        flex: 1;
+        display: flex;
+        border: 1px solid #aaa;
+
+        > .divider {
+            width: 1px;
+            background-color: #aaa;
+        }
+
+        > .side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+
+            &.dark {
+                background-color: #121212;
+
+                > h3 {
+                    color: white;
+                }
+            }
+
+            > h3 {
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+
+            > .container {
+                flex: 1;
+            }
+
+            &:last-of-type > .container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
