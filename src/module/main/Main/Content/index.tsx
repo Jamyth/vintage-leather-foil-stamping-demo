@@ -4,7 +4,8 @@ import { StampText } from "component/StampText";
 import { FontRadioInput } from "component/FontRadioInput";
 import { ColorRadio } from "component/ColorRadio";
 import { LusterRadio } from "component/LusterRadio";
-import { ColorModeRadio } from "component/ColorModeRadio";
+import { ColorModeRadio, ColorMap } from "component/ColorModeRadio";
+import { ColorUtil } from "util/ColorUtil";
 import type { ColorMode } from "component/ColorModeRadio";
 import type { FontType, Color, Luster } from "component/StampText";
 import "./index.less";
@@ -14,7 +15,17 @@ export const Content = React.memo(() => {
     const [fontType, setFontType] = React.useState<FontType>("typo-roman");
     const [luster, setLuster] = React.useState<Luster>("matte");
     const [color, setColor] = React.useState<Color>("gold");
-    const [colorMode, setColorMode] = React.useState<ColorMode>("light");
+    const [colorMode, setColorMode] = React.useState<ColorMode>("Cream");
+
+    const backgroundColor = ColorMap[colorMode];
+
+    const containerStyle: React.CSSProperties = {
+        backgroundColor,
+    };
+
+    const previewStyle: React.CSSProperties = {
+        color: ColorUtil.pickTextColorByBackground(backgroundColor),
+    };
 
     return (
         <div className="content">
@@ -40,14 +51,14 @@ export const Content = React.memo(() => {
                             <LusterRadio value={luster} onChange={setLuster} />
                         </FormControl>
                         <FormControl mb="4">
-                            <FormLabel>主題</FormLabel>
+                            <FormLabel>皮革底色</FormLabel>
                             <ColorModeRadio value={colorMode} onChange={setColorMode} />
                         </FormControl>
                     </div>
                 </div>
                 <div className="divider" />
-                <div className={`side ${colorMode}`}>
-                    <h3>效果預覽</h3>
+                <div className="side" style={containerStyle}>
+                    <h3 style={previewStyle}>效果預覽</h3>
                     <div className="container">
                         <StampText color={color} luster={luster} type={fontType}>
                             {text}

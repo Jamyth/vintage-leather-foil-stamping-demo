@@ -1,8 +1,9 @@
 .content {
+    @gap: 1.2rem;
     flex: 1;
     display: flex;
     flex-direction: column;
-    row-gap: 2rem;
+    row-gap: @gap;
     padding: 2rem;
 
     > h2 {
@@ -26,6 +27,8 @@
             display: flex;
             flex-direction: column;
             padding: 2rem;
+            max-height: calc(100vh - 83px - 6rem - @gap);
+            overflow-y: auto;
 
             &.dark {
                 background-color: #121212;
