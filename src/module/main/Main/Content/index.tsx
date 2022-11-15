@@ -18,6 +18,7 @@ export const Content = React.memo(() => {
     const [colorMode, setColorMode] = React.useState<ColorMode>("Cream");
 
     const backgroundColor = ColorMap[colorMode];
+    const shouldUseDark = ColorUtil.shouldUseDark(backgroundColor);
 
     const containerStyle: React.CSSProperties = {
         backgroundColor,
@@ -25,6 +26,11 @@ export const Content = React.memo(() => {
 
     const previewStyle: React.CSSProperties = {
         color: ColorUtil.pickTextColorByBackground(backgroundColor),
+    };
+
+    const overlayStyle: React.CSSProperties = {
+        filter: shouldUseDark ? "invert(1)" : undefined,
+        opacity: shouldUseDark ? 0.7 : 1,
     };
 
     return (
@@ -59,6 +65,7 @@ export const Content = React.memo(() => {
                 <div className="divider" />
                 <div className="side" style={containerStyle}>
                     <h3 style={previewStyle}>效果預覽</h3>
+                    <div className="overlay" style={overlayStyle} />
                     <div className="container">
                         <StampText color={color} luster={luster} type={fontType}>
                             {text}

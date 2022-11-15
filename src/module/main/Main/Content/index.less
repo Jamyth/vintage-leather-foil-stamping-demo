@@ -29,6 +29,7 @@
             padding: 2rem;
             max-height: calc(100vh - 83px - 6rem - @gap);
             overflow-y: auto;
+            position: relative;
 
             &.dark {
                 background-color: #121212;
@@ -47,10 +48,21 @@
                 flex: 1;
             }
 
-            &:last-of-type > .container {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            &:last-of-type {
+                > .overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-image: url(./asset/large-leather.png);
+                }
+
+                > .container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }
