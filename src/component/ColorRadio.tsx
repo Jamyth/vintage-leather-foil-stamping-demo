@@ -15,6 +15,7 @@ export const ColorRadio = React.memo(({ value, onChange }: Props) => {
                 <Radio value="rose-gold">{colorTranslator("rose-gold")}</Radio>
                 <Radio value="silver">{colorTranslator("silver")}</Radio>
                 <Radio value="black">{colorTranslator("black")}</Radio>
+                <Radio value="white">{colorTranslator("white")}</Radio>
             </Stack>
         </RadioGroup>
     );
@@ -30,5 +31,7 @@ function colorTranslator(color: Color): string {
             return "銀色";
         case "black":
             return "黑色";
+        case "white":
+            return "白色";
     }
 }
